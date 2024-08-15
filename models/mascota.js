@@ -8,12 +8,13 @@ const mascotaSchema=new Schema({
     },
     descripcion:{
         type: String,
-        required: true
+        required:true
     }    
    
 });
 
 /*Creacion modelo*/
 
-       const Mascota= mongoose.model("Mascota.", mascotaSchema);
-       module.exports=Mascota
+    const Mascota = mongoose.model('Mascota', mascotaSchema);
+
+     module.exports=Mascota
