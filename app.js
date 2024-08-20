@@ -5,7 +5,7 @@ require('dotenv').config();
 const app = express();
 
 /* variable de ambiente para el hosting */
-const port = process.env.port || 9000;
+const port = process.env.PORT || 9000;
 
 /* rutas de la api */
 const mascotaRoute = require("./router/mascotas");
@@ -16,7 +16,7 @@ app.use("/api", mascotaRoute);
 
 /* route basica */
 app.get("/", (req, res) => {
-    res.send("Bienvenido a nuestra API con Node");
+    res.send("Bienvenido a nuestra API con Node.");
 })
 
 /* conexion a la base de datos mongodb */
