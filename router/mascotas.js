@@ -4,9 +4,9 @@ const Mascota= require ('../models/mascota.js');
 const router = express.Router();
 
 /* crear mascota */
-router.post("/mascotas", (req, res) => {
+router.post("/mascotas", (req,res) => {
  //   res.send('creacion de mascota')
- const mascota=Mascota (req.body);
+ const mascota=Mascota(req.body);
  mascota
     .save()
     .then((data)=> res.json(data))
@@ -14,7 +14,7 @@ router.post("/mascotas", (req, res) => {
    
 })
 /* consulta de mascotas */
-router.get("/mascotas", (req, res) => {
+router.get("/mascotas", (req,res) => {
     Mascota
         .find()
        .then((data) => res.json(data))
@@ -22,7 +22,7 @@ router.get("/mascotas", (req, res) => {
 })
 
 /* consultar una mascota */
-router.get("/mascotas/:id", (req, res) => {
+router.get("/mascotas/:id", (req,res) => {
     const { id } = req.params;
    Mascota
        .findById(id)
@@ -37,16 +37,16 @@ router.put("/mascotas/:id", (req, res) => {
     Mascota
         .updateOne({ _id: id }, { $set: {nombre, descripcion}})
         .then((data) => res.json(data))
-       .catch((error) => res.json({ message: error }));
+       .catch((error) => res.json({ message:error }));
 });
 
 /* borrar una mascota */
 router.delete("/mascotas/:id", (req, res) => {
    const { id } = req.params;
    Mascota
-       .findByIdAndDelete({ _id: id})
+       .findByIdAndDelete({_id: id})
         .then((data) => res.json(data))
-      .catch((error) => res.json({ message: error }));
+      .catch((error) => res.json({ message:error }));
 })
 
 module.exports = router;
